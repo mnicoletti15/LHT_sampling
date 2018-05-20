@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/mnicoletti/LHT_sampling/Tableaux.cpp
+limits
+-
+Tableaux.h
+/Users/mnicoletti/LHT_sampling/Tableaux.h
+
+/Users/mnicoletti/LHT_sampling/Tableaux.h
+iostream
+-
+vector
+-
+cmath
+-
+random
+-
+
+/Users/mnicoletti/LHT_sampling/main.cpp
+iostream
+-
+vector
+-
+cmath
+-
+random
+-
+Tableaux.h
+/Users/mnicoletti/LHT_sampling/Tableaux.h
+ctime
+-
+
