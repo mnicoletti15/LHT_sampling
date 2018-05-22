@@ -1,19 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <random>
 #include "Tableaux.h"
 #include <ctime>       /* time */
 
 using namespace std;
 
-void step(unsigned int seed, Tableaux& T);
-void transform(double r2, Tableaux& T, int i, int j);
 void print(Tableaux& T);
 
 
 int main() {
-    unsigned int seed = 1;
+    unsigned int seed = 2;
     int n = 5;
     double u = .8;
     double v = .25;
@@ -31,43 +28,14 @@ int main() {
 
     Tableaux T(lambda, mu, t, n, u, v, q);
     print(T);
-    step(seed, T);
+    T.step(seed);
+//    random_device rd;
+//    mt19937 mt(rd());
+//    uniform_real_distribution<double> dist(0.0, 1.0);
+//    double r = dist(mt);
+//    T.transform(r, 3, 1);
     print(T);
     return 0;
-}
-
-void step(unsigned int seed, Tableaux& T) {
-    srand(seed);
-
-    double r = ((double) rand() / (RAND_MAX));
-    int k = 0;
-    for(unsigned i=1; i <= T.height; ++i) {
-        for (unsigned j = 1; j <= T.N; ++j) {
-            if ((i <= T.mu.size() and j <= T.mu[i - 1]) or (j > T.lambda[i - 1])) {
-                continue;
-            } else {
-                k += 1;
-                if (r <= (double) k / T.length) {
-                    double r2 = ((double) rand() / (RAND_MAX));
-                    transform(r2, T, i, j);
-                    return;
-                }
-            }
-        }
-    }
-
-}
-
-void transform(double r2, Tableaux& T, int i, int j) {
-    int k = T.min_val(i, j);
-    double Z = T.partition_fn(i, j);
-    cout << T.get(0, 0) << endl;
-    cout << Z << endl;
-    double c = T.face_weight(k, i, j)/Z;
-    while (c < r2) {
-        c += T.face_weight(++k, i, j)/Z;
-    }
-    T.set(i, j, k);
 }
 
 void print(Tableaux& T) {

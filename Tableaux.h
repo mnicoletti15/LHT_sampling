@@ -46,6 +46,11 @@ class Tableaux {
 
     double partition_fn(int i, int j);
 
+    void step(unsigned int seed);
+
+    void transform(double r, int i, int j);
+
+
 };
 
 
