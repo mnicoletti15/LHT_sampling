@@ -1,4 +1,11 @@
 //
+// Created by Matthew Nicoletti on 7/24/18.
+//
+
+
+
+
+//
 // Created by Matthew Nicoletti on 5/16/18.
 //
 #include <iostream>
@@ -6,24 +13,32 @@
 #include <cmath>
 #include <random>
 #include "Tiling.h"
-#ifndef ANANTH_SAMPLING_TABLEAUX_H
-#define ANANTH_SAMPLING_TABLEAUX_H
+#ifndef ANANTH_SAMPLING_BOUNDEDTABLEAU_H
+#define ANANTH_SAMPLING_BOUNDEDTABLEAU_H
 
 using namespace std;
 
 
-class Tableaux : public Tiling {
-    public:
-    vector<double> vars;
+class BoundedTableaux : public Tiling {
+public:
     double u, v;
     vector<int> lambda;
     vector<int> mu;
-    int length;
     int N;
-    unsigned long height;
+    unsigned long h;
     double q;
+    int m;
+    int t;
+
+    BoundedTableaux();
+
+    BoundedTableaux(vector<int> &l, vector<int> &m, int n_init, double u0, double v0, double qVal);
 
     void set_params(vector<int>& l, vector<int>& m, vector<int>& init, int n_init, double u0, double v0, double qVal);
+
+    void set_to_top(vector<int>& l, int n_init, int tval, int mval);
+
+    void set_to_bottom(vector<int>& l, int n_init, int tval, int mval);
 
     int get(int i, int j) override;
 
@@ -43,8 +58,6 @@ class Tableaux : public Tiling {
 
     double x(int i);
 
-    double partition_fn(int i, int j);
-
     void step(double r, unsigned long seed) override;
 
     void transform(double r, int i, int j);
@@ -57,8 +70,8 @@ class Tableaux : public Tiling {
 
     void print_f_vals() override;
 
-//    Tiling& operator=(const Tiling& other) override;
 };
 
 
-#endif //ANANTH_SAMPLING_TABLEAUX_H
+
+#endif //ANANTH_SAMPLING_BOUNDEDTABLEAU_H

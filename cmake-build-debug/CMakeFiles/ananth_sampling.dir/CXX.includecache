@@ -6,31 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/Users/mnicoletti/LHT_sampling/Tableaux.cpp
-Tableaux.h
-/Users/mnicoletti/LHT_sampling/Tableaux.h
+/Users/mnicoletti/LHT_sampling/Coupling.cpp
+Coupling.h
+/Users/mnicoletti/LHT_sampling/Coupling.h
+Tiling.h
+/Users/mnicoletti/LHT_sampling/Tiling.h
 random
 -
 
-/Users/mnicoletti/LHT_sampling/Tableaux.h
+/Users/mnicoletti/LHT_sampling/Coupling.h
 iostream
 -
 vector
 -
-cmath
--
-random
--
+Tiling.h
+/Users/mnicoletti/LHT_sampling/Tiling.h
 
-/Users/mnicoletti/LHT_sampling/main.cpp
+/Users/mnicoletti/LHT_sampling/Tiling.h
 iostream
 -
 vector
--
-cmath
--
-Tableaux.h
-/Users/mnicoletti/LHT_sampling/Tableaux.h
-ctime
 -
 

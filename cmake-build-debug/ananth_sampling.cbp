@@ -44,11 +44,10 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
 					<Add directory="/System/Library/Frameworks"/>
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
@@ -66,11 +65,10 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/usr/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
 					<Add directory="/System/Library/Frameworks"/>
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
@@ -82,6 +80,30 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/mnicoletti/LHT_sampling/BoundedTableaux.cpp">
+			<Option target="ananth_sampling"/>
+		</Unit>
+		<Unit filename="/Users/mnicoletti/LHT_sampling/BoundedTableaux.h">
+			<Option target="ananth_sampling"/>
+		</Unit>
+		<Unit filename="/Users/mnicoletti/LHT_sampling/Coupling.cpp">
+			<Option target="ananth_sampling"/>
+		</Unit>
+		<Unit filename="/Users/mnicoletti/LHT_sampling/Coupling.h">
+			<Option target="ananth_sampling"/>
+		</Unit>
+		<Unit filename="/Users/mnicoletti/LHT_sampling/LozengeTiling.cpp">
+			<Option target="ananth_sampling"/>
+		</Unit>
+		<Unit filename="/Users/mnicoletti/LHT_sampling/LozengeTiling.h">
+			<Option target="ananth_sampling"/>
+		</Unit>
+		<Unit filename="/Users/mnicoletti/LHT_sampling/SimpleTableaux.cpp">
+			<Option target="ananth_sampling"/>
+		</Unit>
+		<Unit filename="/Users/mnicoletti/LHT_sampling/SimpleTableaux.h">
+			<Option target="ananth_sampling"/>
+		</Unit>
 		<Unit filename="/Users/mnicoletti/LHT_sampling/Tableaux.cpp">
 			<Option target="ananth_sampling"/>
 		</Unit>

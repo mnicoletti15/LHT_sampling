@@ -5,17 +5,16 @@
 #include "Tableaux.h"
 #include <random>
 
-Tableaux::Tableaux(vector<int> &l, vector<int> &m, vector<int> &init, int n_init, double u0, double v0, double qVal) {
+void Tableaux::set_params(vector<int> &l, vector<int> &m, vector<int> &init, int n_init, double u0, double v0, double qVal) {
     q = qVal;
     u = u0;
     v = v0;
     n = n_init;
     lambda = l;
     mu = m;
-    N = lambda.at(0);
+    N = lambda[0];
     height = lambda.size();
     vector<int> tab((N + 2) * (height + 2));
-    pair<vector<int>, int> result;
     int L = 0;
     int W = N + 2;
 
@@ -143,14 +142,10 @@ double Tableaux::partition_fn(int i, int j) {
     return result;
 }
 
-void Tableaux::step(unsigned int seed) {
-    random_device rd;
-    mt19937 mt(rd());
-    uniform_real_distribution<double> dist(0.0, 1.0);
-    double r = dist(mt);
+void Tableaux::step(double r, unsigned long seed) {
     int color = r < 0.5;
-
     int k = 0;
+    srand(seed);
     for(unsigned i=1; i <= height; ++i) {
         for (unsigned j = 1; j <= N; ++j) {
             if ((i <= mu.size() and j <= mu[i - 1]) or (j > lambda[i - 1])) {
@@ -158,8 +153,7 @@ void Tableaux::step(unsigned int seed) {
             } else {
                 k += 1;
                 if ((i + j) % 2 == color) {
-                    double r2 = dist(mt);
-                    transform(r2, i, j);
+                    transform(rand() * 1.0/RAND_MAX, i, j);
                 }
             }
         }
@@ -172,10 +166,39 @@ void Tableaux::transform(double r, int i, int j) {
     double Z = partition_fn(i, j);
     double c = face_weight(k, i, j)/Z;
     double s = 0;
-    cout << "setting face " << i << ' ' << j << endl;
+//    cout << "setting face " << i << ' ' << j << endl;
     while (c < r) {
         c += face_weight(++k, i, j)/Z;
     }
-    cout << "done, set face " << i << ' ' << j << endl;
+//    cout << "done, set face " << i << ' ' << j << endl;
     set(i, j, k);
 }
+
+void Tableaux::print() {
+    cout << "{" << '\n';
+    for (unsigned i=0; i < height + 2; ++i) {
+        cout << "{";
+        for (unsigned j = 0; j < N + 2; ++j) {
+            cout << get(i, j) << ", ";
+        }
+        cout << "}" << endl;
+    }
+    cout << "}" << endl;
+}
+
+bool Tableaux::equals(Tiling& T) {
+    return tableaux == T.tableaux;
+}
+
+double Tableaux::max_diff(Tiling& T) {
+    return 0.0;
+}
+
+void Tableaux::print_f_vals() {
+    cout << "no f vals for this tiling" << endl;
+}
+
+//Tiling& Tableaux::operator=(const Tiling& other) {
+//    tableaux = other.tableaux;
+//    return *this;
+//}
